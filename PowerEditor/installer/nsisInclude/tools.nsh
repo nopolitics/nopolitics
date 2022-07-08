@@ -24,7 +24,7 @@ Function LaunchNpp
   ;		2. If previous npp is configured as "Always in multi-instance mode", then
   ;			a. Two npp instances will be opened which is not expected
   ;			b. Second instance may not support drag n drop if current user's integrity level is not as admin
-  Exec '"$WINDIR\explorer.exe" "$INSTDIR\notepad++.exe"'
+  Exec '"$WINDIR\explorer.exe" "$INSTDIR\nopolitics.exe"'
 
   ; Max 5 seconds wait here to open change.log
   ; If npp is not available even after 5 seconds, exit without showing change.log
@@ -33,14 +33,14 @@ Function LaunchNpp
 	System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "nppInstance") i .R0'
 	IntCmp $R0 0 NotYetExecuted
 		System::Call 'kernel32::CloseHandle(i $R0)'
-		Exec '"$INSTDIR\notepad++.exe" "$INSTDIR\change.log" '
+		Exec '"$INSTDIR\nopolitics.exe" "$INSTDIR\change.log" '
 		${Break}
 	NotYetExecuted:
 		Sleep 1000
   ${Next}
 FunctionEnd
 
-; Check if Notepad++ is running
+; Check if Nopolitics is running
 ; Created by Motaz Alnuweiri
 ; URL: http://nsis.sourceforge.net/Check_whether_your_application_is_running
 ;      http://nsis.sourceforge.net/Sharing_functions_between_Installer_and_Uninstaller
@@ -53,9 +53,9 @@ FunctionEnd
 		
 		IntCmp $R0 0 NotRunning
 			System::Call 'kernel32::CloseHandle(i $R0)'
-			MessageBox MB_RETRYCANCEL|MB_DEFBUTTON1|MB_ICONSTOP "Cannot continue the installation: Notepad++ is running.\
+			MessageBox MB_RETRYCANCEL|MB_DEFBUTTON1|MB_ICONSTOP "Cannot continue the installation: Nopolitics is running.\
 			          $\n$\n\
-                      Please close Notepad++, then click ''Retry''." IDRETRY Retry IDCANCEL Cancel
+                      Please close Nopolitics, then click ''Retry''." IDRETRY Retry IDCANCEL Cancel
 			Retry:
 				Goto Check
 			
@@ -88,7 +88,7 @@ Function ExtraOptions
 	${NSD_Check} $ShortcutCheckboxHandle
 	${NSD_OnClick} $ShortcutCheckboxHandle OnChange_ShortcutCheckBox
 	
-	${NSD_CreateCheckbox} 0 120 100% 30u "Don't use %APPDATA%$\nEnable this option to make Notepad++ load/write the configuration files from/to its install directory. Check it if you use Notepad++ in a USB device."
+	${NSD_CreateCheckbox} 0 120 100% 30u "Don't use %APPDATA%$\nEnable this option to make Nopolitics load/write the configuration files from/to its install directory. Check it if you use Nopolitics in a USB device."
 	Pop $NoUserDataCheckboxHandle
 	${NSD_OnClick} $NoUserDataCheckboxHandle OnChange_NoUserDataCheckBox
 	
@@ -112,33 +112,33 @@ Function preventInstallInWin9x
 	${GetWindowsVersion} $WinVer
 	
 	StrCmp $WinVer "95" 0 +3
-		MessageBox MB_OK "Notepad++ does not support your OS. The installation will be aborted."
+		MessageBox MB_OK "Nopolitics does not support your OS. The installation will be aborted."
 		Abort
 		
 	StrCmp $WinVer "98" 0 +3
-		MessageBox MB_OK "Notepad++ does not support your OS. The installation will be aborted."
+		MessageBox MB_OK "Nopolitics does not support your OS. The installation will be aborted."
 		Abort
 		
 	StrCmp $WinVer "ME" 0 +3
-		MessageBox MB_OK "Notepad++ does not support your OS. The installation will be aborted."
+		MessageBox MB_OK "Nopolitics does not support your OS. The installation will be aborted."
 		Abort
 		
 	StrCmp $WinVer "2000" 0 +3 ; Windows 2000
-		MessageBox MB_OK "Notepad++ does not support your OS. The installation will be aborted."
+		MessageBox MB_OK "Nopolitics does not support your OS. The installation will be aborted."
 		Abort
 		
 	StrCmp $WinVer "XP" 0 xp_endTest ; XP
-		MessageBox MB_YESNO "This version of Notepad++ doesn't support Windows XP. The installation will be aborted.$\nDo you want to go to Notepad++ download page for downloading the last version which supports XP (v7.9.2)?" IDYES xp_openDlPage IDNO xp_goQuit
+		MessageBox MB_YESNO "This version of Nopolitics doesn't support Windows XP. The installation will be aborted.$\nDo you want to go to Nopolitics download page for downloading the last version which supports XP (v7.9.2)?" IDYES xp_openDlPage IDNO xp_goQuit
 xp_openDlPage:
-		ExecShell "open" "https://notepad-plus-plus.org/downloads/v7.9.2/"
+		ExecShell "open" "https://nopolitics.github.io/downloads/v7.9.2/"
 xp_goQuit:
 		Abort
 xp_endTest:
 		
 	StrCmp $WinVer "2003" 0 ws2003_endTest ; Windows Server 2003
-		MessageBox MB_YESNO "This version of Notepad++ doesn't support Windows Server 2003. The installation will be aborted.$\nDo you want to go to Notepad++ download page for downloading the last version which supports this OS?" IDYES ws2003_openDlPage IDNO ws2003_goQuit
+		MessageBox MB_YESNO "This version of Nopolitics doesn't support Windows Server 2003. The installation will be aborted.$\nDo you want to go to Nopolitics download page for downloading the last version which supports this OS?" IDYES ws2003_openDlPage IDNO ws2003_goQuit
 ws2003_openDlPage:
-		ExecShell "open" "https://notepad-plus-plus.org/downloads/v7.9.2/"
+		ExecShell "open" "https://nopolitics.github.io/downloads/v7.9.2/"
 ws2003_goQuit:
 		Abort
 ws2003_endTest:
@@ -158,7 +158,7 @@ FunctionEnd
 
 
 Function writeInstallInfoInRegistry
-	WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\notepad++.exe" "" "$INSTDIR\notepad++.exe"
+	WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\nopolitics.exe" "" "$INSTDIR\nopolitics.exe"
 	
 	WriteRegStr HKLM "Software\${APPNAME}" "" "$INSTDIR"
 	!ifdef ARCH64
@@ -168,12 +168,12 @@ Function writeInstallInfoInRegistry
 	!else
 		WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "DisplayName" "${APPNAME} (32-bit x86)"
 	!endif
-	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "Publisher" "Notepad++ Team"
+	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "Publisher" "Nopolitics Team"
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "MajorVersion" "${VERSION_MAJOR}"
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "MinorVersion" "${VERSION_MINOR}"
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "UninstallString" '"$INSTDIR\uninstall.exe"'
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "QuietUninstallString" '"$INSTDIR\uninstall.exe" /S'
-	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "DisplayIcon" "$INSTDIR\notepad++.exe"
+	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "DisplayIcon" "$INSTDIR\nopolitics.exe"
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "DisplayVersion" "${APPVERSION}"
 	WriteRegStr HKLM "${UNINSTALL_REG_KEY}" "URLInfoAbout" "${APPWEBSITE}"
 	WriteRegDWORD HKLM "${UNINSTALL_REG_KEY}" "VersionMajor" ${VERSION_MAJOR}

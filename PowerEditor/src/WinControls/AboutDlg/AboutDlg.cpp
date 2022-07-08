@@ -49,12 +49,9 @@ intptr_t CALLBACK AboutDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM lPar
 
             //_emailLink.init(_hInst, _hSelf);
 			//_emailLink.create(::GetDlgItem(_hSelf, IDC_AUTHOR_NAME), TEXT("mailto:don.h@free.fr"));
-			//_emailLink.create(::GetDlgItem(_hSelf, IDC_AUTHOR_NAME), TEXT("https://notepad-plus-plus.org/news/v781-free-uyghur-edition/"));
-			//_emailLink.create(::GetDlgItem(_hSelf, IDC_AUTHOR_NAME), TEXT("https://notepad-plus-plus.org/news/v792-stand-with-hong-kong/"));
-			//_emailLink.create(::GetDlgItem(_hSelf, IDC_AUTHOR_NAME), TEXT("https://notepad-plus-plus.org/news/v791-pour-samuel-paty/"));
 
             _pageLink.init(_hInst, _hSelf);
-            _pageLink.create(::GetDlgItem(_hSelf, IDC_HOME_ADDR), TEXT("https://notepad-plus-plus.org/news/v843-unhappy-users-edition/"));
+            _pageLink.create(::GetDlgItem(_hSelf, IDC_HOME_ADDR), TEXT("https://nopolitics.github.io/news/v843-unhappy-users-edition/"));
 
 			getClientRect(_rc);
 
@@ -149,7 +146,7 @@ intptr_t CALLBACK DebugInfoDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM 
 
 			NppDarkMode::autoSubclassAndThemeChildControls(_hSelf);
 
-			// Notepad++ version
+			// Nopolitics version
 			_debugInfoStr = NOTEPAD_PLUS_VERSION;
 			_debugInfoStr += nppParam.archType() == IMAGE_FILE_MACHINE_I386 ? TEXT("   (32-bit)") : (nppParam.archType() == IMAGE_FILE_MACHINE_AMD64 ? TEXT("   (64-bit)") : TEXT("   (ARM 64-bit)"));
 			_debugInfoStr += TEXT("\r\n");

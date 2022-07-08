@@ -38,7 +38,7 @@ void allowWmCopydataMessages(Notepad_plus_Window& notepad_plus_plus, const NppPa
 	const DWORD MSGFLT_ALLOW = 1;
 	#endif
 	// Tell UAC that lower integrity processes are allowed to send WM_COPYDATA messages to this process (or window)
-	// This allows opening new files to already opened elevated Notepad++ process via explorer context menu.
+	// This allows opening new files to already opened elevated Nopolitics process via explorer context menu.
 	if (ver >= WV_VISTA || ver == WV_UNKNOWN)
 	{
 		HMODULE hDll = GetModuleHandle(TEXT("user32.dll"));
@@ -318,7 +318,7 @@ const TCHAR FLAG_MONITOR_FILES[] = TEXT("-monitor");
 void doException(Notepad_plus_Window & notepad_plus_plus)
 {
 	Win32Exception::removeHandler();	//disable exception handler after excpetion, we dont want corrupt data structurs to crash the exception handler
-	::MessageBox(Notepad_plus_Window::gNppHWND, TEXT("Notepad++ will attempt to save any unsaved data. However, dataloss is very likely."), TEXT("Recovery initiating"), MB_OK | MB_ICONINFORMATION);
+	::MessageBox(Notepad_plus_Window::gNppHWND, TEXT("Nopolitics will attempt to save any unsaved data. However, dataloss is very likely."), TEXT("Recovery initiating"), MB_OK | MB_ICONINFORMATION);
 
 	TCHAR tmpDir[1024];
 	GetTempPath(1024, tmpDir);
@@ -328,12 +328,12 @@ void doException(Notepad_plus_Window & notepad_plus_plus)
 	bool res = notepad_plus_plus.emergency(emergencySavedDir);
 	if (res)
 	{
-		generic_string displayText = TEXT("Notepad++ was able to successfully recover some unsaved documents, or nothing to be saved could be found.\r\nYou can find the results at :\r\n");
+		generic_string displayText = TEXT("Nopolitics was able to successfully recover some unsaved documents, or nothing to be saved could be found.\r\nYou can find the results at :\r\n");
 		displayText += emergencySavedDir;
 		::MessageBox(Notepad_plus_Window::gNppHWND, displayText.c_str(), TEXT("Recovery success"), MB_OK | MB_ICONINFORMATION);
 	}
 	else
-		::MessageBox(Notepad_plus_Window::gNppHWND, TEXT("Unfortunatly, Notepad++ was not able to save your work. We are sorry for any lost data."), TEXT("Recovery failure"), MB_OK | MB_ICONERROR);
+		::MessageBox(Notepad_plus_Window::gNppHWND, TEXT("Unfortunatly, Nopolitics was not able to save your work. We are sorry for any lost data."), TEXT("Recovery failure"), MB_OK | MB_ICONERROR);
 }
 
 PWSTR advanceCmdLine(PWSTR pCmdLine, const generic_string& string)
@@ -514,7 +514,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int)
 	}
 
 	if (showHelp)
-		::MessageBox(NULL, COMMAND_ARG_HELP, TEXT("Notepad++ Command Argument Help"), MB_OK);
+		::MessageBox(NULL, COMMAND_ARG_HELP, TEXT("Nopolitics Command Argument Help"), MB_OK);
 
 	if (cmdLineParams._localizationPath != TEXT(""))
 	{
@@ -531,7 +531,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int)
 	bool doUpdateNpp = nppGui._autoUpdateOpt._doAutoUpdate;
 	bool doUpdatePluginList = nppGui._autoUpdateOpt._doAutoUpdate;
 
-	if (doFunctionListExport || doPrintAndQuit) // export functionlist feature will serialize fuctionlist on the disk, then exit Notepad++. So it's important to not launch into existing instance, and keep it silent.
+	if (doFunctionListExport || doPrintAndQuit) // export functionlist feature will serialize fuctionlist on the disk, then exit Nopolitics. So it's important to not launch into existing instance, and keep it silent.
 	{
 		isMultiInst = true;
 		doUpdateNpp = doUpdatePluginList = false;
@@ -707,7 +707,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int)
 			upPlParams += TEXT(" -upZip");
 
 			// overrided "InfoUrl" in gup.xml
-			upPlParams += TEXT(" https://notepad-plus-plus.org/update/pluginListDownloadUrl.php");
+			upPlParams += TEXT(" https://nopolitics.github.io/update/pluginListDownloadUrl.php");
 
 			// indicate the pluginList installation location
 			upPlParams += nppParameters.getPluginConfDir();
@@ -762,7 +762,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int)
 	catch (const Win32Exception & ex)
 	{
 		TCHAR message[1024];	//TODO: sane number
-		wsprintf(message, TEXT("An exception occured. Notepad++ cannot recover and must be shut down.\r\nThe exception details are as follows:\r\n")
+		wsprintf(message, TEXT("An exception occured. Nopolitics cannot recover and must be shut down.\r\nThe exception details are as follows:\r\n")
 			TEXT("Code:\t0x%08X\r\nType:\t%S\r\nException address: 0x%p"), ex.code(), ex.what(), ex.where());
 		::MessageBox(Notepad_plus_Window::gNppHWND, message, TEXT("Win32Exception"), MB_OK | MB_ICONERROR);
 		mdump.writeDump(ex.info());

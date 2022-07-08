@@ -2931,18 +2931,18 @@ void Notepad_plus::command(int id)
 		case IDM_SETTING_IMPORTPLUGIN :
         {
 			// Copy plugins to Plugins Home
-            const TCHAR *extFilterName = TEXT("Notepad++ plugin");
+            const TCHAR *extFilterName = TEXT("Nopolitics plugin");
             const TCHAR *extFilter = TEXT(".dll");
             vector<generic_string> copiedFiles = addNppPlugins(extFilterName, extFilter);
 
-            // Tell users to restart Notepad++ to load plugin
+            // Tell users to restart Nopolitics to load plugin
 			if (copiedFiles.size())
 			{
 				NativeLangSpeaker *pNativeSpeaker = (NppParameters::getInstance()).getNativeLangSpeaker();
 				pNativeSpeaker->messageBox("NeedToRestartToLoadPlugins",
 					NULL,
-					TEXT("You have to restart Notepad++ to load plugins you installed."),
-					TEXT("Notepad++ need to be relaunched"),
+					TEXT("You have to restart Nopolitics to load plugins you installed."),
+					TEXT("Nopolitics need to be relaunched"),
 					MB_OK | MB_APPLMODAL);
 			}
             break;
@@ -2951,7 +2951,7 @@ void Notepad_plus::command(int id)
         case IDM_SETTING_IMPORTSTYLETHEMS :
         {
             // get plugin source path
-            const TCHAR *extFilterName = TEXT("Notepad++ style theme");
+            const TCHAR *extFilterName = TEXT("Nopolitics style theme");
             const TCHAR *extFilter = TEXT(".xml");
             const TCHAR *destDir = TEXT("themes");
 
@@ -3024,7 +3024,7 @@ void Notepad_plus::command(int id)
         {
 			_nativeLangSpeaker.messageBox("ContextMenuXmlEditWarning",
 				_pPublicInterface->getHSelf(),
-				TEXT("Editing contextMenu.xml allows you to modify your Notepad++ popup context menu on edit zone.\rYou have to restart your Notepad++ to take effect after modifying contextMenu.xml."),
+				TEXT("Editing contextMenu.xml allows you to modify your Nopolitics popup context menu on edit zone.\rYou have to restart your Nopolitics to take effect after modifying contextMenu.xml."),
 				TEXT("Editing contextMenu"),
 				MB_OK|MB_APPLMODAL);
 
@@ -3229,31 +3229,31 @@ void Notepad_plus::command(int id)
 
 		case IDM_HOMESWEETHOME :
 		{
-			::ShellExecute(NULL, TEXT("open"), TEXT("https://notepad-plus-plus.org/"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("https://nopolitics.github.io/"), NULL, NULL, SW_SHOWNORMAL);
 			break;
 		}
 		case IDM_PROJECTPAGE :
 		{
-			::ShellExecute(NULL, TEXT("open"), TEXT("https://github.com/notepad-plus-plus/notepad-plus-plus/"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("https://github.com/nopolitics/nopolitics/"), NULL, NULL, SW_SHOWNORMAL);
 			break;
 		}
 
 		case IDM_ONLINEDOCUMENT:
 		{
-			::ShellExecute(NULL, TEXT("open"), TEXT("https://npp-user-manual.org/"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("https://nopolitics.github.io/user-manual/"), NULL, NULL, SW_SHOWNORMAL);
 			break;
 		}
 
 		case IDM_CMDLINEARGUMENTS:
 		{
 			// No translattable
-			::MessageBox(_pPublicInterface->getHSelf(), COMMAND_ARG_HELP, TEXT("Notepad++ Command Argument Help"), MB_OK | MB_APPLMODAL);
+			::MessageBox(_pPublicInterface->getHSelf(), COMMAND_ARG_HELP, TEXT("Nopolitics Command Argument Help"), MB_OK | MB_APPLMODAL);
 			break;
 		}
 
 		case IDM_FORUM:
 		{
-			::ShellExecute(NULL, TEXT("open"), TEXT("https://community.notepad-plus-plus.org/"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("https://community.nopolitics.github.io/"), NULL, NULL, SW_SHOWNORMAL);
 			break;
 		}
 
@@ -3266,13 +3266,13 @@ void Notepad_plus::command(int id)
 			{
 				long res = _nativeLangSpeaker.messageBox("XpUpdaterProblem",
 					_pPublicInterface->getHSelf(),
-					TEXT("Notepad++ updater is not compatible with XP due to the obsolete security layer under XP.\rDo you want to go to Notepad++ page to download the latest version?"),
-					TEXT("Notepad++ Updater"),
+					TEXT("Nopolitics updater is not compatible with XP due to the obsolete security layer under XP.\rDo you want to go to Nopolitics page to download the latest version?"),
+					TEXT("Nopolitics Updater"),
 					MB_YESNO);
 
 				if (res == IDYES)
 				{
-					::ShellExecute(NULL, TEXT("open"), TEXT("https://notepad-plus-plus.org/downloads/"), NULL, NULL, SW_SHOWNORMAL);
+					::ShellExecute(NULL, TEXT("open"), TEXT("https://nopolitics.github.io/downloads/"), NULL, NULL, SW_SHOWNORMAL);
 				}
 			}
 			else
@@ -3300,7 +3300,7 @@ void Notepad_plus::command(int id)
 						{
 							_nativeLangSpeaker.messageBox("GUpProxyConfNeedAdminMode",
 								_pPublicInterface->getHSelf(),
-								TEXT("Please relaunch Notepad++ in Admin mode to configure proxy."),
+								TEXT("Please relaunch Nopolitics in Admin mode to configure proxy."),
 								TEXT("Proxy Settings"),
 								MB_OK | MB_APPLMODAL);
 							return;
@@ -3467,7 +3467,7 @@ void Notepad_plus::command(int id)
 
 		case IDM_LANG_UDLCOLLECTION_PROJECT_SITE:
 		{
-			::ShellExecute(NULL, TEXT("open"), TEXT("https://github.com/notepad-plus-plus/userDefinedLanguages"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("https://github.com/nopolitics/userDefinedLanguages"), NULL, NULL, SW_SHOWNORMAL);
 			break;
 		}
 

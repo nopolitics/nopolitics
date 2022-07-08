@@ -3,15 +3,15 @@
 |
 |   To learn how to make your own language parser, please check the following
 |   link:
-|       https://npp-user-manual.org/docs/function-list/
+|       https://nopolitics.github.io/user-manual/docs/function-list/
 |
 \=========================================================================== -->
 <NotepadPlus>
 	<functionList>
 		<!--
 		|   Based on:
-		|       https://notepad-plus-plus.org/community/topic/11059/custom-functions-list-rules
-		|       https://notepad-plus-plus.org/community/topic/13553/functionlist-xml-regular-expressions-not-parsing-properly
+		|       https://nopolitics.github.io/community/topic/11059/custom-functions-list-rules
+		|       https://nopolitics.github.io/community/topic/13553/functionlist-xml-regular-expressions-not-parsing-properly
 		\-->
 		<parser
 			displayName="Fortran Free Form style - FORmula TRANslation"

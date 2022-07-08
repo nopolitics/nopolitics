@@ -128,7 +128,7 @@ BOOL Notepad_plus::notify(SCNotification *notification)
 					isDirty = true;
 			}
 
-			if (buf->isUnsync()) // buffer in Notepad++ is not syncronized with the file on disk - in this case the buffer is always dirty 
+			if (buf->isUnsync()) // buffer in Nopolitics is not syncronized with the file on disk - in this case the buffer is always dirty 
 				isDirty = true;
 
 			if (buf->isSavePointDirty())
@@ -290,7 +290,7 @@ BOOL Notepad_plus::notify(SCNotification *notification)
 					const rsize_t classNameBufferSize = MAX_PATH;
 					TCHAR className[classNameBufferSize];
 					::GetClassName(hWinParent,className, classNameBufferSize);
-					if (lstrcmp(className, _pPublicInterface->getClassName()) == 0 && hWinParent != _pPublicInterface->getHSelf()) // another Notepad++
+					if (lstrcmp(className, _pPublicInterface->getClassName()) == 0 && hWinParent != _pPublicInterface->getHSelf()) // another Nopolitics
 					{
 						int index = _pDocTab->getCurrentTabIndex();
 						BufferID bufferToClose = notifyDocTab->getBufferByIndex(index);
@@ -302,7 +302,7 @@ BOOL Notepad_plus::notify(SCNotification *notification)
 							_nativeLangSpeaker.messageBox("CannotMoveDoc",
 								_pPublicInterface->getHSelf(),
 								TEXT("Document is modified, save it then try again."),
-								TEXT("Move to new Notepad++ Instance"),
+								TEXT("Move to new Nopolitics Instance"),
 								MB_OK);
 						}
 						else
@@ -317,7 +317,7 @@ BOOL Notepad_plus::notify(SCNotification *notification)
 							}
 						}
 					}
-					else // Not Notepad++, we open it here
+					else // Not Nopolitics, we open it here
 					{
 						docOpenInNewInstance(isInCtrlStat?TransferClone:TransferMove, p.x, p.y);
 					}

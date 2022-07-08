@@ -19,7 +19,7 @@
 #include <shlwapi.h>
 #include "Notepad_plus_Window.h"
 
-const TCHAR Notepad_plus_Window::_className[32] = TEXT("Notepad++");
+const TCHAR Notepad_plus_Window::_className[32] = TEXT("Nopolitics");
 HWND Notepad_plus_Window::gNppHWND = NULL;
 
 
@@ -103,7 +103,7 @@ void Notepad_plus_Window::init(HINSTANCE hInst, HWND parent, const TCHAR *cmdLin
 	_hSelf = ::CreateWindowEx(
 		WS_EX_ACCEPTFILES | (_notepad_plus_plus_core._nativeLangSpeaker.isRTL() ? WS_EX_LAYOUTRTL : 0),
 		_className,
-		TEXT("Notepad++"),
+		TEXT("Nopolitics"),
 		(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN),
 		// CreateWindowEx bug : set all 0 to walk around the pb
 		0, 0, 0, 0,
@@ -279,7 +279,7 @@ void Notepad_plus_Window::init(HINSTANCE hInst, HWND parent, const TCHAR *cmdLin
 
 	::SendMessage(_hSelf, NPPM_INTERNAL_CRLFFORMCHANGED, 0, 0);
 
-	// Notify plugins that Notepad++ is ready
+	// Notify plugins that Nopolitics is ready
 	SCNotification scnN;
 	scnN.nmhdr.code = NPPN_READY;
 	scnN.nmhdr.hwndFrom = _hSelf;

@@ -10,7 +10,7 @@
 
 图标来自[Notepad3](https://github.com/rizonesoft/Notepad3)，遵循`BSD 3-Clause`协议使用
 
-其余部分来自[Notepad++](https://github.com/nopolitics/nopolitics)，遵循`GPL`协议使用
+其余部分来自[Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)，遵循`GPL`协议使用
 
 What is Nopolitics ?
 ===================

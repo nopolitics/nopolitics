@@ -16,17 +16,17 @@
 
 
 ; Define the application name
-!define APPNAME "Notepad++"
+!define APPNAME "Nopolitics"
 
 ; ------------------------------------------------------------------------
-; Get Notepad++ version from the notepad++ binary
+; Get Nopolitics version from the nopolitics binary
 
 !ifdef ARCH64
-	!getdllversion "..\bin64\notepad++.exe" nppVer_
+	!getdllversion "..\bin64\nopolitics.exe" nppVer_
 !else ifdef ARCHARM64
-	!getdllversion "..\binarm64\notepad++.exe" nppVer_
+	!getdllversion "..\binarm64\nopolitics.exe" nppVer_
 !else
-	!getdllversion "..\bin\notepad++.exe" nppVer_
+	!getdllversion "..\bin\nopolitics.exe" nppVer_
 !endif
 
 !define APPVERSION		${nppVer_1}.${nppVer_2}		; 7.5
@@ -53,12 +53,12 @@
 
 !define APPNAMEANDVERSION	"${APPNAME} v${APPVERSION}"
 !define CompanyName		"Don HO don.h@free.fr"
-!define Description		"Notepad++ : a free (GNU) source code editor"
+!define Description		"Nopolitics : a free (GNU) source code editor"
 !define Version		"${nppVer_1}.${nppVer_2}.${nppVer_3}.${nppVer_4}"
 !define ProdVer		"${VERSION_MAJOR}.${VERSION_MINOR}"
 !define LegalCopyright		"Copyleft 1998-2017 by Don HO"
 
-!define APPWEBSITE "https://notepad-plus-plus.org/"
+!define APPWEBSITE "https://nopolitics.github.io/"
 
 !define UNINSTALL_REG_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
 !define MEMENTO_REGISTRY_ROOT HKLM

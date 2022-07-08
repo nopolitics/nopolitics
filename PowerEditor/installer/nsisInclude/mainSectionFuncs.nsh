@@ -95,11 +95,11 @@ Function copyCommonFiles
 	File "..\bin\readme.txt"
 	
 !ifdef ARCH64
-	File "..\bin64\notepad++.exe"
+	File "..\bin64\nopolitics.exe"
 !else ifdef ARCHARM64
-	File "..\binarm64\notepad++.exe"
+	File "..\binarm64\nopolitics.exe"
 !else
-	File "..\bin\notepad++.exe"
+	File "..\bin\nopolitics.exe"
 !endif
 
 	; Markdown in user defined languages
@@ -221,7 +221,7 @@ Function removeUnstablePlugins
 	; remove unstable plugins
 	CreateDirectory "$INSTDIR\plugins\disabled"
 	
-	; NppSaveAsAdmin makes Notepad++ crash. "1.0.211.0" is its 1st version which contains the fix
+	; NppSaveAsAdmin makes Nopolitics crash. "1.0.211.0" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\NppSaveAsAdmin\NppSaveAsAdmin.dll" 0 NppSaveAsAdminTestEnd
 		${GetFileVersion} "$INSTDIR\plugins\NppSaveAsAdmin\NppSaveAsAdmin.dll" $R0
 		${VersionCompare} $R0 "1.0.211.0" $R1 ;   0: equal to 1.0.211.0   1: $R0 is newer   2: 1.0.211.0 is newer
@@ -234,7 +234,7 @@ NppSaveAsAdminTestEnd:
 
 !ifdef ARCH64 || ARCHARM64 ; x64 or ARM64
 
-	; HexEditor makes Notepad++ x64 crash. "0.9.12" is its 1st version which contains the fix
+	; HexEditor makes Nopolitics x64 crash. "0.9.12" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\HexEditor\HexEditor.dll" 0 HexEditorTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\HexEditor\HexEditor.dll" $R0
 		${VersionCompare} $R0 "0.9.12" $R1 ;   0: equal to 0.9.12   1: $R0 is newer   2: 0.9.12 is newer
@@ -245,7 +245,7 @@ NppSaveAsAdminTestEnd:
 		Delete "$INSTDIR\plugins\HexEditor\HexEditor.dll"
 HexEditorTestEnd64:
 
-	; ComparePlugin makes Notepad++ x64 crash. "2.0.2" is its 1st version which contains the fix
+	; ComparePlugin makes Nopolitics x64 crash. "2.0.2" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\ComparePlugin\ComparePlugin.dll" 0 CompareTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\ComparePlugin\ComparePlugin.dll" $R0
 		${VersionCompare} $R0 "2.0.2" $R1 ;   0: equal to 2.0.2   1: $R0 is newer   2: 2.0.2 is newer
@@ -256,7 +256,7 @@ HexEditorTestEnd64:
 		Delete "$INSTDIR\plugins\ComparePlugin\ComparePlugin.dll"
 CompareTestEnd64:
 
-	; DSpellCheck makes Notepad++ x64 crash. "1.4.23" is its 1st version which contains the fix
+	; DSpellCheck makes Nopolitics x64 crash. "1.4.23" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\DSpellCheck\DSpellCheck.dll" 0 DSpellCheckTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\DSpellCheck\DSpellCheck.dll" $R0
 		${VersionCompare} $R0 "1.4.23" $R1 ;   0: equal to 1.4.23   1: $R0 is newer   2: 1.4.23 is newer
@@ -267,7 +267,7 @@ CompareTestEnd64:
 		Delete "$INSTDIR\plugins\DSpellCheck\DSpellCheck.dll"
 DSpellCheckTestEnd64:
 
-	; SpeechPlugin makes Notepad++ x64 crash. "0.4.0.0" is its 1st version which contains the fix
+	; SpeechPlugin makes Nopolitics x64 crash. "0.4.0.0" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\SpeechPlugin\SpeechPlugin.dll" 0 SpeechPluginTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\SpeechPlugin\SpeechPlugin.dll" $R0
 		${VersionCompare} $R0 "0.4.0.0" $R1 ;   0: equal to 0.4.0.0   1: $R0 is newer   2: 0.4.0.0 is newer
@@ -278,7 +278,7 @@ DSpellCheckTestEnd64:
 		Delete "$INSTDIR\plugins\SpeechPlugin\SpeechPlugin.dll"
 SpeechPluginTestEnd64:
 
-	; XMLTools makes Notepad++ x64 crash. "3.1.1.12" is its 1st version which contains the fix
+	; XMLTools makes Nopolitics x64 crash. "3.1.1.12" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\XMLTools\XMLTools.dll" 0 XMLToolsTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\XMLTools\XMLTools.dll" $R0
 		${VersionCompare} $R0 "3.1.1.12" $R1 ;   0: equal to 3.1.1.12   1: $R0 is newer   2: 3.1.1.12 is newer
@@ -289,7 +289,7 @@ SpeechPluginTestEnd64:
 		Delete "$INSTDIR\plugins\XMLTools\XMLTools.dll"
 XMLToolsTestEnd64:
 
-	; NppTaskList makes Notepad++ x64 crash. "2.4" is its 1st version which contains the fix
+	; NppTaskList makes Nopolitics x64 crash. "2.4" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\NppTaskList\NppTaskList.dll" 0 NppTaskListTestEnd64
 		${GetFileVersion} "$INSTDIR\plugins\NppTaskList\NppTaskList.dll" $R0
 		${VersionCompare} $R0 "2.4" $R1 ;   0: equal to 2.4   1: $R0 is newer   2: 2.4 is newer
@@ -300,7 +300,7 @@ XMLToolsTestEnd64:
 		Delete "$INSTDIR\plugins\NppTaskList\NppTaskList.dll"
 NppTaskListTestEnd64:
 
-	; jN makes Notepad++ x64 crash. "2.2.185.7" is its 1st version which contains the fix
+	; jN makes Nopolitics x64 crash. "2.2.185.7" is its 1st version which contains the fix
 	IfFileExists "$INSTDIR\plugins\jN\jN.dll" 0 jN64
 		${GetFileVersion} "$INSTDIR\plugins\jN\jN.dll" $R0
 		${VersionCompare} $R0 "2.2.185.7" $R1 ;   0: equal to 2.2.185.7   1: $R0 is newer   2: 2.4 is newer
@@ -313,7 +313,7 @@ jN64:
 
 
 	IfFileExists "$INSTDIR\plugins\NppQCP\NppQCP.dll" 0 NppQCPTestEnd64
-		MessageBox MB_OK "Due to NppQCP plugin's crash issue on Notepad++ x64 binary, NppQCP.dll will be removed." /SD IDOK
+		MessageBox MB_OK "Due to NppQCP plugin's crash issue on Nopolitics x64 binary, NppQCP.dll will be removed." /SD IDOK
 		Rename "$INSTDIR\plugins\NppQCP\NppQCP.dll" "$INSTDIR\plugins\disabled\NppQCP.dll"
 		Delete "$INSTDIR\plugins\NppQCP\NppQCP.dll"
 NppQCPTestEnd64:
@@ -366,9 +366,9 @@ FunctionEnd
 
 Function shortcutLinkManagement
 	; remove all the npp shortcuts from current user
-	Delete "$DESKTOP\Notepad++.lnk"
-	Delete "$SMPROGRAMS\Notepad++.lnk"
-	Delete "$SMPROGRAMS\${APPNAME}\Notepad++.lnk"
+	Delete "$DESKTOP\Nopolitics.lnk"
+	Delete "$SMPROGRAMS\Nopolitics.lnk"
+	Delete "$SMPROGRAMS\${APPNAME}\Nopolitics.lnk"
 	Delete "$SMPROGRAMS\${APPNAME}\readme.lnk"
 	Delete "$SMPROGRAMS\${APPNAME}\Uninstall.lnk"
 	RMDir "$SMPROGRAMS\${APPNAME}"
@@ -384,9 +384,9 @@ Function shortcutLinkManagement
 	SetOutPath "$INSTDIR\"
 	
 	; add all the npp shortcuts for all user or current user
-	CreateShortCut "$SMPROGRAMS\Notepad++.lnk" "$INSTDIR\notepad++.exe"
+	CreateShortCut "$SMPROGRAMS\Nopolitics.lnk" "$INSTDIR\nopolitics.exe"
 	${If} $createShortcutChecked == ${BST_CHECKED}
-		CreateShortCut "$DESKTOP\Notepad++.lnk" "$INSTDIR\notepad++.exe"
+		CreateShortCut "$DESKTOP\Nopolitics.lnk" "$INSTDIR\nopolitics.exe"
 	${EndIf}
 	
 	SetShellVarContext current

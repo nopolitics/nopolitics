@@ -53,7 +53,7 @@ struct ScintillaKeyDefinition
 	bool isAlt;
 	bool isShift;
 	int vKey;
-	int redirFunctionId;	//this gets set  when a function is being redirected through Notepad++ if Scintilla doesnt do it properly :)
+	int redirFunctionId;	//this gets set  when a function is being redirected through Nopolitics if Scintilla doesnt do it properly :)
 };
 
 
@@ -425,7 +425,7 @@ static const WinMenuKeyDefinition winKeyDefs[] =
 	// The following two commands are not in menu if (nppGUI._doesExistUpdater == 0).
 	// They cannot be derived from menu then, only for this reason the text is specified here.
 	// In localized environments, the text comes preferably from xml Menu/Main/Commands.
-	{ VK_NULL,    IDM_UPDATE_NPP,                               false, false, false, TEXT("Update Notepad++") },
+	{ VK_NULL,    IDM_UPDATE_NPP,                               false, false, false, TEXT("Update Nopolitics") },
 	{ VK_NULL,    IDM_CONFUPDATERPROXY,                         false, false, false, TEXT("Set Updater Proxy...") },
 	{ VK_NULL,    IDM_DEBUGINFO,                                false, false, false, nullptr },
 	{ VK_F1,      IDM_ABOUT,                                    false, false, false, nullptr }
@@ -1035,7 +1035,7 @@ generic_string NppParameters::getSettingsFolder()
 	if (settingsFolderPath.empty())
 		return _nppPath;
 
-	pathAppend(settingsFolderPath, TEXT("Notepad++"));
+	pathAppend(settingsFolderPath, TEXT("Nopolitics"));
 	return settingsFolderPath;
 }
 
@@ -1055,7 +1055,7 @@ bool NppParameters::load()
 	_isLocal = (PathFileExists(localConfPath.c_str()) == TRUE);
 
 	// Under vista and windows 7, the usage of doLocalConf.xml is not allowed
-	// if Notepad++ is installed in "program files" directory, because of UAC
+	// if Nopolitics is installed in "program files" directory, because of UAC
 	if (_isLocal)
 	{
 		// We check if OS is Vista or greater version
@@ -1088,7 +1088,7 @@ bool NppParameters::load()
 	{
 		_userPath = getSpecialFolderLocation(CSIDL_APPDATA);
 
-		pathAppend(_userPath, TEXT("Notepad++"));
+		pathAppend(_userPath, TEXT("Nopolitics"));
 		if (!PathFileExists(_userPath.c_str()))
 			::CreateDirectory(_userPath.c_str(), NULL);
 
@@ -1354,7 +1354,7 @@ bool NppParameters::load()
 	//----------------------------------------------//
 	// nativeLang.xml : for per user				//
 	// In case of absence of user's nativeLang.xml, //
-	// We'll look in the Notepad++ Dir.			 //
+	// We'll look in the Nopolitics Dir.			 //
 	//----------------------------------------------//
 
 	generic_string nativeLangPath;
@@ -6600,14 +6600,14 @@ void NppParameters::createXmlTreeFromGUIParams()
 		GUIConfigElement->SetAttribute(TEXT("short"), pStr);
 	}
 
-	// <GUIConfig name="stylerTheme" path="C:\sources\notepad-plus-plus\PowerEditor\visual.net\..\bin\stylers.xml" />
+	// <GUIConfig name="stylerTheme" path="C:\sources\nopolitics\PowerEditor\visual.net\..\bin\stylers.xml" />
 	{
 		TiXmlElement *GUIConfigElement = (newGUIRoot->InsertEndChild(TiXmlElement(TEXT("GUIConfig"))))->ToElement();
 		GUIConfigElement->SetAttribute(TEXT("name"), TEXT("stylerTheme"));
 		GUIConfigElement->SetAttribute(TEXT("path"), _nppGUI._themeName.c_str());
 	}
 
-	// <GUIConfig name="insertDateTime" path="C:\sources\notepad-plus-plus\PowerEditor\visual.net\..\bin\stylers.xml" />
+	// <GUIConfig name="insertDateTime" path="C:\sources\nopolitics\PowerEditor\visual.net\..\bin\stylers.xml" />
 	{
 		TiXmlElement* GUIConfigElement = (newGUIRoot->InsertEndChild(TiXmlElement(TEXT("GUIConfig"))))->ToElement();
 		GUIConfigElement->SetAttribute(TEXT("name"), TEXT("insertDateTime"));
@@ -7694,7 +7694,7 @@ void NppParameters::setUdlXmlDirtyFromXmlDoc(const TiXmlDocument* xmlDoc)
 
 Date::Date(const TCHAR *dateStr)
 {
-	// timeStr should be Notepad++ date format : YYYYMMDD
+	// timeStr should be Nopolitics date format : YYYYMMDD
 	assert(dateStr);
 	int D = lstrlen(dateStr);
 

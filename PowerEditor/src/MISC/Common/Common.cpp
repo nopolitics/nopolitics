@@ -846,7 +846,7 @@ double stodLocale(const generic_string& str, _locale_t loc, size_t* idx)
 }
 
 // Source: https://blogs.msdn.microsoft.com/greggm/2005/09/21/comparing-file-names-in-native-code/
-// Modified to use TCHAR's instead of assuming Unicode and reformatted to conform with Notepad++ code style
+// Modified to use TCHAR's instead of assuming Unicode and reformatted to conform with Nopolitics code style
 static TCHAR ToUpperInvariant(TCHAR input)
 {
 	TCHAR result;
@@ -860,7 +860,7 @@ static TCHAR ToUpperInvariant(TCHAR input)
 }
 
 // Source: https://blogs.msdn.microsoft.com/greggm/2005/09/21/comparing-file-names-in-native-code/
-// Modified to use TCHAR's instead of assuming Unicode and reformatted to conform with Notepad++ code style
+// Modified to use TCHAR's instead of assuming Unicode and reformatted to conform with Nopolitics code style
 int OrdinalIgnoreCaseCompareStrings(LPCTSTR sz1, LPCTSTR sz2)
 {
 	if (sz1 == sz2)
@@ -1288,7 +1288,7 @@ bool isAssoCommandExisting(LPCTSTR FullPathName)
         
         isAssoCommandExisting = (hres == S_OK)                  // check if association exist and no error
 			&& (buffer != NULL)                                 // check if buffer is not NULL
-			&& (wcsstr(buffer, TEXT("notepad++.exe")) == NULL); // check association with notepad++
+			&& (wcsstr(buffer, TEXT("nopolitics.exe")) == NULL); // check association with nopolitics
         
 	}
 	return isAssoCommandExisting;

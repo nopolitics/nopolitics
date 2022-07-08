@@ -392,8 +392,8 @@ bool PluginsAdminDlg::exitToInstallRemovePlugins(Operation op, const vector<Plug
 	NativeLangSpeaker *pNativeSpeaker = nppParameters.getNativeLangSpeaker();
 	auto res = pNativeSpeaker->messageBox("ExitToUpdatePlugins",
 		_hSelf,
-		TEXT("If you click YES, you will quit Notepad++ to continue the operations.\nNotepad++ will be restarted after all the operations are terminated.\nContinue?"),
-		TEXT("Notepad++ is about to exit"),
+		TEXT("If you click YES, you will quit Nopolitics to continue the operations.\nNopolitics will be restarted after all the operations are terminated.\nContinue?"),
+		TEXT("Nopolitics is about to exit"),
 		MB_YESNO | MB_APPLMODAL);
 
 	if (res == IDYES)
@@ -404,7 +404,7 @@ bool PluginsAdminDlg::exitToInstallRemovePlugins(Operation op, const vector<Plug
 		nppParam.setWingupFullPath(updaterFullPath);
 
 		// op: -clean or "-clean -unzip"
-		// application path: Notepad++ path to be relaunched
+		// application path: Nopolitics path to be relaunched
 		// plugin global path
 		// plugin names or "plugin names + download url"
 		nppParam.setWingupParams(updaterParams);
@@ -412,7 +412,7 @@ bool PluginsAdminDlg::exitToInstallRemovePlugins(Operation op, const vector<Plug
 		// gup folder path
 		nppParam.setWingupDir(updaterDir);
 
-		// Quite Notepad++ so just before quitting Notepad++ launches gup with needed arguments  
+		// Quite Nopolitics so just before quitting Nopolitics launches gup with needed arguments  
 		::PostMessage(_hParent, WM_COMMAND, IDM_FILE_EXIT, 0);
 	}
 
@@ -421,7 +421,7 @@ bool PluginsAdminDlg::exitToInstallRemovePlugins(Operation op, const vector<Plug
 
 bool PluginsAdminDlg::installPlugins()
 {
-	// Need to exit Notepad++
+	// Need to exit Nopolitics
 
 	vector<size_t> indexes = _availableList.getCheckedIndexes();
 	vector<PluginUpdateInfo*> puis = _availableList.fromUiIndexesToPluginInfos(indexes);
@@ -431,7 +431,7 @@ bool PluginsAdminDlg::installPlugins()
 
 bool PluginsAdminDlg::updatePlugins()
 {
-	// Need to exit Notepad++
+	// Need to exit Nopolitics
 
 	vector<size_t> indexes = _updateList.getCheckedIndexes();
 	vector<PluginUpdateInfo*> puis = _updateList.fromUiIndexesToPluginInfos(indexes);
@@ -441,7 +441,7 @@ bool PluginsAdminDlg::updatePlugins()
 
 bool PluginsAdminDlg::removePlugins()
 {
-	// Need to exit Notepad++
+	// Need to exit Nopolitics
 
 	vector<size_t> indexes = _installedList.getCheckedIndexes();
 	vector<PluginUpdateInfo*> puis = _installedList.fromUiIndexesToPluginInfos(indexes);
@@ -725,7 +725,7 @@ bool PluginsAdminDlg::initFromJson()
 
 #else //RELEASE
 
-	// check the signature on default location : %APPDATA%\Notepad++\plugins\config\pl\nppPluginList.dll or NPP_INST_DIR\plugins\config\pl\nppPluginList.dll
+	// check the signature on default location : %APPDATA%\Nopolitics\plugins\config\pl\nppPluginList.dll or NPP_INST_DIR\plugins\config\pl\nppPluginList.dll
 	
 	SecurityGuard securityGuard;
 	bool isSecured = securityGuard.checkModule(_pluginListFullPath, nm_pluginList);

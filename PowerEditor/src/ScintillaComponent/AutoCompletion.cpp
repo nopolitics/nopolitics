@@ -733,7 +733,7 @@ void AutoCompletion::insertMatchedChars(int character, const MatchedPairConf & m
 		}
 	}
 
-	// if there's no user defined matched pair found, continue to check notepad++'s one
+	// if there's no user defined matched pair found, continue to check nopolitics's one
 
 
 	char closeTag[tagMaxLen];

@@ -340,7 +340,7 @@ private :
 	int _internalID;
 };
 
-class Accelerator { //Handles accelerator keys for Notepad++ menu, including custom commands
+class Accelerator { //Handles accelerator keys for Nopolitics menu, including custom commands
 friend class ShortcutMapper;
 public:
 	Accelerator() = default;

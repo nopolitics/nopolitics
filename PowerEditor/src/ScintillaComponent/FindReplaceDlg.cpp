@@ -2284,7 +2284,7 @@ bool FindReplaceDlg::processFindNext(const TCHAR *txt2find, const FindOption *op
 				msg = stringReplace(msg, TEXT("$STR_REPLACE$"), newTxt2find);
 				setStatusbarMessage(msg, FSNotFound);
 
-				// if the dialog is not shown, pass the focus to his parent(ie. Notepad++)
+				// if the dialog is not shown, pass the focus to his parent(ie. Nopolitics)
 				if (!::IsWindowVisible(_hSelf))
 				{
 					(*_ppEditView)->getFocus();
@@ -4454,7 +4454,7 @@ void Finder::copyPathnames()
 		if (!str2Clipboard(toClipboard, _hSelf))
 		{
 			assert(false);
-			::MessageBox(NULL, TEXT("Error placing pathnames into clipboard."), TEXT("Notepad++"), MB_ICONINFORMATION);
+			::MessageBox(NULL, TEXT("Error placing pathnames into clipboard."), TEXT("Nopolitics"), MB_ICONINFORMATION);
 		}
 	}
 }
@@ -4555,7 +4555,7 @@ void Finder::copy()
 		if (!str2Clipboard(toClipboard, _hSelf))
 		{
 			assert(false);
-			::MessageBox(NULL, TEXT("Error placing text in clipboard."), TEXT("Notepad++"), MB_ICONINFORMATION);
+			::MessageBox(NULL, TEXT("Error placing text in clipboard."), TEXT("Nopolitics"), MB_ICONINFORMATION);
 		}
 	}
 }
@@ -4567,7 +4567,7 @@ void Finder::beginNewFilesSearch()
 
 	// Use SCI_SETSEL(0, 0) instead of SCI_SETCURRENTPOS(0) to workaround
 	// an eventual regression or a change of behaviour in Scintilla 4.4.6
-	// ref: https://github.com/notepad-plus-plus/notepad-plus-plus/issues/9595#issuecomment-789824579
+	// ref: https://github.com/nopolitics/nopolitics/issues/9595#issuecomment-789824579
 	//
 	_scintView.execute(SCI_SETSEL, 0, 0);
 	//_scintView.execute(SCI_SETCURRENTPOS, 0);

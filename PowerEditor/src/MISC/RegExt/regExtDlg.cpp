@@ -20,9 +20,9 @@
 
 
 
-const TCHAR* nppName   = TEXT("Notepad++_file");
-const TCHAR* nppBackup = TEXT("Notepad++_backup");
-const TCHAR* nppDoc    = TEXT("Notepad++ Document");
+const TCHAR* nppName   = TEXT("Nopolitics_file");
+const TCHAR* nppBackup = TEXT("Nopolitics_backup");
+const TCHAR* nppDoc    = TEXT("Nopolitics Document");
 
 const int nbSupportedLang = 10;
 const int nbExtMax = 27;
