@@ -43,24 +43,24 @@ for:
   after_build:
     # artifacts
     - ps: |
-        $nppFileName = "Notepad++.$env:platform.$env:configuration.exe"
+        $nppFileName = "Nopolitics.$env:platform.$env:configuration.exe"
         if ("$env:platform/$env:configuration" -eq "Win32/Release") {
-            Push-AppveyorArtifact "PowerEditor\bin\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\bin\Nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "Win32/Debug") {
-            Push-AppveyorArtifact "PowerEditor\visual.net\Debug\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\visual.net\Debug\Nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "x64/Release") {
-            Push-AppveyorArtifact "PowerEditor\bin64\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\bin64\Nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "x64/Debug") {
-            Push-AppveyorArtifact "PowerEditor\visual.net\x64\Debug\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\visual.net\x64\Debug\Nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "arm64/Release") {
-            Push-AppveyorArtifact "PowerEditor\binarm64\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\binarm64\Nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "arm64/Debug") {
-            Push-AppveyorArtifact "PowerEditor\visual.net\arm64\Debug\Notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "PowerEditor\visual.net\arm64\Debug\Nopolitics.exe" -FileName "$nppFileName"
         }
     # xml files syntax checks
     - if "%platform%/%configuration%" EQU "Win32/Debug" set PATH=C:\Python38;C:\Python38\Scripts;%PATH%
@@ -69,7 +69,7 @@ for:
     # tests
     - ps: |
         if ("$env:platform/$env:configuration" -eq "Win32/Debug") {
-            Copy-Item "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\visual.net\Debug\Notepad++.exe" -Destination "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\bin"
+            Copy-Item "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\visual.net\Debug\Nopolitics.exe" -Destination "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\bin"
             Copy-Item "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\src\langs.model.xml" -Destination "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\bin"
             Copy-Item "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\src\stylers.model.xml" -Destination "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\bin"
             Copy-Item "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\src\shortcuts.xml" -Destination "$env:APPVEYOR_BUILD_FOLDER\PowerEditor\bin"
@@ -101,16 +101,16 @@ for:
   after_build:
     # artifacts
     - ps: |
-        $nppFileName = "Notepad++.$env:compiler.$env:platform.$env:configuration.exe"
+        $nppFileName = "Nopolitics.$env:compiler.$env:platform.$env:configuration.exe"
         if ("$env:platform/$env:configuration" -eq "i686/Release") {
-            Push-AppveyorArtifact "bin.i686\notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "bin.i686\nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "i686/Debug") {
-            Push-AppveyorArtifact "bin.i686-debug\notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "bin.i686-debug\nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "x86_64/Release") {
-            Push-AppveyorArtifact "bin.x86_64\notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "bin.x86_64\nopolitics.exe" -FileName "$nppFileName"
         }
         if ("$env:platform/$env:configuration" -eq "x86_64/Debug") {
-            Push-AppveyorArtifact "bin.x86_64-debug\notepad++.exe" -FileName "$nppFileName"
+            Push-AppveyorArtifact "bin.x86_64-debug\nopolitics.exe" -FileName "$nppFileName"
         }
